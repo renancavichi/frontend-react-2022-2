@@ -1,6 +1,13 @@
+import Oi from "./Oi"
+
 function App() {
   return (
-    <p>Olá Mundo!</p>
+    <>
+      <Oi />
+      <Oi />
+      <p>Mais um oi</p>
+      <Oi />
+    </>
   );
 }
 
