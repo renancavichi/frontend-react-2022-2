@@ -1,13 +1,9 @@
-import Oi from "./Oi"
+import Home from "./pages/Home";
 
-function App() {
+
+const App = () => {
   return (
-    <>
-      <Oi />
-      <Oi />
-      <p>Mais um oi</p>
-      <Oi />
-    </>
+    <Home />
   );
 }
 
