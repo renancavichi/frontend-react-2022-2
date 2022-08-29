@@ -1,4 +1,15 @@
-.header-nav {
+.Header {
     background: #000;
     height: 50px;
+    color: #FFF;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Header .container{
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
