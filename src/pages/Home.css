@@ -1,9 +1,9 @@
-main {
+#Home {
     background: #FFF;
     padding: 20px 0;
 }
 
-.container{
+#Home .container{
     width: 800px;
     margin: 0 auto;
     background: #FFF;
