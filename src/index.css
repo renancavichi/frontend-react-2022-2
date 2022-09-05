@@ -17,6 +17,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #c8c8c8;
+  background: #f0f0f0;
 }
 
+a{
+  color: #fc763d;
+  text-decoration: none;
+}
+
+a:hover{
+  color: #c13a00
+}
