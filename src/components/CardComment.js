@@ -1,11 +1,11 @@
 
-const CardComment = ({initial, name, children}) => {
+const CardComment = ({avatarUrl, name, children}) => {
 
   const {card, avatar, box, userName, text} = style
 
   return (
     <div style={card}>
-        <div style={avatar}>{initial}</div>
+        <img src={avatarUrl} style={avatar} alt="Foto do Fulano"/>
         <div style={box}>
             <h1 style={userName}>{name}</h1>
             <p style={text}>{children}</p>

@@ -1,34 +1,47 @@
-import {Link} from 'react-router-dom'
-import Footer from "../components/Footer"
+import {useEffect, useState} from 'react'
 import Header from "../components/Header"
 import "./Home.css"
+import Footer from "../components/Footer"
 import MainContainer from '../components/MainContainer'
 import CardComment from '../components/CardComment'
 
 const Home = () => {
+
+  const [users, setUsers] = useState([])
+
+  const requestUsers = async () => {
+    const response = await fetch('https://api.github.com/users')
+    const data = await response.json()
+    setUsers(data)
+  }
+
+  useEffect(() => {
+    requestUsers()
+  },[])
+
   return (
     <>
       <Header />
+
       <MainContainer>
         <h1>Home</h1>
-        <p>Na pesquisa de 2018 sobre hábitos de desenvolvedores do site Stack Overflow, o React foi a terceira biblioteca ou framework[8] mais citado pelos usuários e desenvolvedores profissionais, ficando atrás somente do Node.js e Angular, respectivamente.[9]</p>
+        <p>Lista usuários API Git Hub:</p>
 
-        <CardComment initial='R' name='Renan'>
-          Na pesquisa de 2018 sobre hábitos de desenvolvedores do site Stack Overflow, o React foi a terceira
-        </CardComment>
 
-        <CardComment initial='M' name='Maria'>
-          Profissionais, ficando atrás somente do Node.js e Angular
-        </CardComment>
+        {
+          users.length === 0
+          ? <p>Nenhum usuário</p>
+          : users.map((user) => { 
+            return (
+              <CardComment key={user.id} avatarUrl={user.avatar_url} name={user.login}>
+                {user.html_url}
+              </CardComment>
+            )
+          })
+        }
 
-        <CardComment initial='C' name='Carmo'>
-          Fiquei amigo do react!
-        </CardComment>
-
-        <Link to='/contact'>Contact</Link><br />
-        <a href="/contact">Contact Direto</a>
       </MainContainer>
-      <Footer />
+      <Footer />   
     </>
   )
 }
