@@ -8,20 +8,21 @@ import { useState, useEffect } from "react"
 const User = () => {
   const { id } = useParams()
   const navigate = useNavigate()
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState(null)
 
   const requestUserById = async (id) => {
-const response = await fetch(`http://localhost/pj3/api-php-ifsp-2022-2/user/by-id?id=${id}`)
+    const response = await fetch(`http://localhost/pj3/api-php-ifsp-2022-2/user/by-id?id=${id}`)
     const result = await response.json()
     console.log(result?.success?.message)
     if(result?.error){
-        navigate('/not-found')
+      navigate('/not-found')
     }
     setUser(result.data)
   }
 
   useEffect(() => {
     requestUserById(id)
+  // eslint-disable-next-line
   },[])
 
   return (
