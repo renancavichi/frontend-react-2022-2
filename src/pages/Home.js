@@ -34,7 +34,7 @@ const Home = () => {
           ? <p>Nenhum usuário</p>
           : users.map((user) =>  
             (
-              <CardComment setUser={setUsers} users={users} key={user.id} avatarUrl={user.avatar} name={user.name} id={user.id}>
+              <CardComment setUsers={setUsers} users={users} key={user.id} avatarUrl={user.avatar} name={user.name} id={user.id}>
                 {user.email}
               </CardComment>
             )
