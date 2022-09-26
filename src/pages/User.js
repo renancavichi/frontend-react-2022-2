@@ -30,11 +30,11 @@ const User = () => {
         <Header />
         <MainContainer>
             {
-                user?.name ? 
+                user ? 
                 <>
-                    <h1>{user.name}</h1>
-                    <img src={user.avatar} alt={user.name} />
-                    <p>Email: {user.email}</p>
+                  <h1>{user.name}</h1>
+                  <img src={user.avatar} alt={user.name} />
+                  <p>Email: {user.email}</p>
                 </> 
                 : <p>Loading user...</p>
             }

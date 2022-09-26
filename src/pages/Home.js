@@ -3,7 +3,7 @@ import Header from "../components/Header"
 import "./Home.css"
 import Footer from "../components/Footer"
 import MainContainer from '../components/MainContainer'
-import CardComment from '../components/CardComment'
+import CardUser from '../components/CardUser'
 
 const Home = () => {
 
@@ -34,9 +34,9 @@ const Home = () => {
           ? <p>Nenhum usuário</p>
           : users.map((user) =>  
             (
-              <CardComment setUsers={setUsers} users={users} key={user.id} avatarUrl={user.avatar} name={user.name} id={user.id}>
+              <CardUser setUsers={setUsers} users={users} key={user.id} avatarUrl={user.avatar} name={user.name} id={user.id}>
                 {user.email}
-              </CardComment>
+              </CardUser>
             )
           )
         }
