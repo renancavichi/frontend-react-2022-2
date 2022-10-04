@@ -6,6 +6,7 @@ import MainContainer from '../components/MainContainer'
 import CardUser from '../components/CardUser'
 import { API_PATH  } from "../config"
 import Modal from '../components/Modal'
+import ButtonLoading from '../components/ButtonLoading'
 
 const Home = () => {
 
@@ -17,6 +18,7 @@ const Home = () => {
     avatar: "",
   })
   const [showModal, setShowModal] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const requestUsers = async () => {
     const response = await fetch(`${API_PATH}user/list`)
@@ -30,6 +32,7 @@ const Home = () => {
   }
 
   const handleSubmit = async (event) => {
+    setIsLoading(true)
     event.preventDefault()
     const response = await fetch(`${API_PATH}user/update`, {
       method: 'PUT',
@@ -45,6 +48,7 @@ const Home = () => {
       setShowModal(false)
     }
     console.log(JSON.stringify(result))
+    setIsLoading(false)
 }
 
   useEffect(() => {
@@ -80,7 +84,7 @@ const Home = () => {
               <p>Name: <input type="text" name="name" value={userToEdit.name} onChange={(event)=>handleChange(event)}/></p>
               <p>Email: <input type="text" name="email" value={userToEdit.email} onChange={(event)=>handleChange(event)}/></p>
               <p>Avatar: <input type="text" name="avatar" value={userToEdit.avatar} onChange={(event)=>handleChange(event)}/></p>
-              <input type="submit" value="Send" />
+              <ButtonLoading type="submit" isLoading={isLoading}>Update</ButtonLoading>
           </form>
       </Modal>
     </> 
