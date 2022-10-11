@@ -4,10 +4,15 @@ import "./Contact.css"
 import MainContainer from '../components/MainContainer'
 import Footer from '../components/Footer'
 
+import { useContext } from 'react'
+import { AuthContext } from '../Providers/AuthProvider'
+
 const Contact = () => {
   
   const [count, setCount] = useState(0)
-  const [nameUser, setNameUser] = useState("Renan")
+  const [nameUser] = useState("Renan")
+
+  const [userLogged, setUserLogged] = useContext(AuthContext)
   
   useEffect(() => {
     console.log(count)
@@ -21,7 +26,7 @@ const Contact = () => {
         <h1>My number is: {count}</h1>
         <button onClick={() => setCount(count + 1)}>Plus 1</button>
         <br/><br/>
-        <button onClick={() => setNameUser("Marcos")}>Change name Marcos</button>
+        <button onClick={() => setUserLogged({...userLogged, idUser: '20'})}>Change name Marcos</button>
       </MainContainer>
       <Footer />
     </>

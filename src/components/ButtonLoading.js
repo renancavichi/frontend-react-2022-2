@@ -2,9 +2,9 @@ import styled, { keyframes } from 'styled-components'
 import { BiLoaderAlt } from 'react-icons/bi'
 import React from 'react'
 
-const ButtonLoading = ({ type = 'button', isLoading, children }) => {
+const ButtonLoading = ({ type = 'button', onClick, isLoading, children }) => {
 	return (
-		<LoadingButton type={type} disabled={isLoading}>
+		<LoadingButton onClick={onClick} type={type} disabled={isLoading}>
 			{children}
 			{isLoading && <Loader />}
 		</LoadingButton>
