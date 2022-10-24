@@ -1,11 +1,11 @@
 import './Header.css'
 import { FaReact as ReactLogo } from 'react-icons/fa'
 import { NavLink, Link, useNavigate } from 'react-router-dom'
-import useAuth from '../hooks/useAuth'
 import ButtonLoading from './ButtonLoading'
+import useAuth from '../hooks/useAuth'
 import logout from '../helpers/logout'
 
-const Header = () => {
+const HeaderAdmin = () => {
 
   const [userLogged, setUserLogged] = useAuth()
   const navigate = useNavigate()
@@ -28,27 +28,16 @@ const Header = () => {
   return (
     <header className='Header'>
       <div className='container'>
-        <Link to='/'>
+        <Link to='/admin'>
           <div className='logotype'>
             <ReactLogo className='icon-logo'/>
-            <h1>Tutorial React</h1>
+            <h1>Área Admninistrativa</h1>
           </div>
         </Link>
         <nav>
           <ul>
             <li><NavLink to='/' end>Home</NavLink></li>
-            <li><NavLink to='/contact' end>Hooks</NavLink></li>
-            <li><NavLink to='/sign-up' end>SignUp</NavLink></li>
-            {userLogged.isLogged ? (
-              <>
-                <li><ButtonLoading onClick={() =>handleLogout()} isLoading={false}>Sair</ButtonLoading></li>
-              </>
-            ) : (
-              <>
-                <li><ButtonLoading onClick={() => navigate('/login')} isLoading={false}>Login</ButtonLoading></li>
-              </>
-            )}
-           
+            <li><ButtonLoading onClick={()=>{handleLogout()}} isLoading={false}>Sair</ButtonLoading></li>
           </ul>
         </nav>
       </div>
@@ -56,4 +45,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default HeaderAdmin

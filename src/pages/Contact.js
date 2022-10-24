@@ -1,11 +1,9 @@
 import {useState, useEffect} from 'react'
-import Header from "../components/Header"
 import "./Contact.css"
-import MainContainer from '../components/MainContainer'
-import Footer from '../components/Footer'
-
 import { useContext } from 'react'
 import { AuthContext } from '../Providers/AuthProvider'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
 const Contact = () => {
   
@@ -20,15 +18,27 @@ const Contact = () => {
 
   return (
     <>
-      <Header />
-      <MainContainer>
-        <h1>Olá {nameUser}!</h1>
-        <h1>My number is: {count}</h1>
-        <button onClick={() => setCount(count + 1)}>Plus 1</button>
-        <br/><br/>
-        <button onClick={() => setUserLogged({...userLogged, idUser: '20'})}>Change name Marcos</button>
-      </MainContainer>
-      <Footer />
+      <h1>Olá {nameUser}!</h1>
+      <h1>My number is: {count}</h1>
+      <Button onClick={() => setCount(count + 1)}>Plus 1</Button>
+      <br/><br/>
+      <Button onClick={() => setUserLogged({...userLogged, idUser: '20'})}>Change name Marcos</Button>
+      
+      <br/><br/>
+      <h2>Exemplo uso bootstrap</h2>
+      <br/>
+
+      <Card style={{ width: '18rem' }}>
+        <Card.Img variant="top" src="https://avatars.githubusercontent.com/u/54189051?v=4" />
+        <Card.Body>
+          <Card.Title>Card Title</Card.Title>
+          <Card.Text>
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </Card.Text>
+          <Button variant="primary">Go somewhere</Button>
+        </Card.Body>
+      </Card>
     </>
   )
 }

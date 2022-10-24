@@ -6,7 +6,7 @@ import Modal from '../components/Modal'
 import ButtonLoading from '../components/ButtonLoading'
 import useAuth from '../hooks/useAuth'
 
-const Home = () => {
+const HomeAdmin = () => {
 
   const [users, setUsers] = useState([])
   const [userToEdit, setUserToEdit] = useState({
@@ -63,30 +63,30 @@ const Home = () => {
 
   return (
     <>
-        <h1>Home</h1>
-        <p>Lista usuários API Git Hub:</p>
+      <h1>Home Admin</h1>
+      <p>Lista usuários API Git Hub:</p>
 
-        {
-          users.length === 0
-          ? <p>Nenhum usuário</p>
-          : users.map((user) =>  
-            (
-              <CardUser setUsers={setUsers} users={users} key={user.id} avatarUrl={user.avatar} name={user.name} id={user.id} setShowModal={setShowModal} setUserToEdit={setUserToEdit}>
-                {user.email}
-              </CardUser>
-            )
+      {
+        users.length === 0
+        ? <p>Nenhum usuário</p>
+        : users.map((user) =>  
+          (
+            <CardUser setUsers={setUsers} users={users} key={user.id} avatarUrl={user.avatar} name={user.name} id={user.id} setShowModal={setShowModal} setUserToEdit={setUserToEdit}>
+              {user.email}
+            </CardUser>
           )
-        }
+        )
+      }
 
       <Modal showModal={showModal} setShowModal={setShowModal}>
-          <h1>Edit User</h1>
-          <form onSubmit={(event) => handleSubmit(event)}>
-              <input type="hidden" name="id" value={userToEdit.id}/>
-              <p>Name: <input type="text" name="name" value={userToEdit.name} onChange={(event)=>handleChange(event)}/></p>
-              <p>Email: <input type="text" name="email" value={userToEdit.email} onChange={(event)=>handleChange(event)}/></p>
-              <p>Avatar: <input type="text" name="avatar" value={userToEdit.avatar} onChange={(event)=>handleChange(event)}/></p>
-              <ButtonLoading type="submit" isLoading={isLoading}>Update</ButtonLoading>
-          </form>
+        <h1>Edit User</h1>
+        <form onSubmit={(event) => handleSubmit(event)}>
+          <input type="hidden" name="id" value={userToEdit.id}/>
+          <p>Name: <input type="text" name="name" value={userToEdit.name} onChange={(event)=>handleChange(event)}/></p>
+          <p>Email: <input type="text" name="email" value={userToEdit.email} onChange={(event)=>handleChange(event)}/></p>
+          <p>Avatar: <input type="text" name="avatar" value={userToEdit.avatar} onChange={(event)=>handleChange(event)}/></p>
+          <ButtonLoading type="submit" isLoading={isLoading}>Update</ButtonLoading>
+        </form>
       </Modal>
     </> 
   )
@@ -94,4 +94,4 @@ const Home = () => {
 
 
 
-export default Home
+export default HomeAdmin
